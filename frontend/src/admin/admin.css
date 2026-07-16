@@ -1,0 +1,422 @@
+:root {
+  --border: #d0d7de;
+  --bg: #f6f8fa;
+  --text: #1f2328;
+  --muted: #57606a;
+  --primary: #1d4ed8;
+  --danger: #cf222e;
+}
+
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text);
+  background: #fff;
+}
+
+/* ---------- buttons / shared ---------- */
+.btn {
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--text);
+  padding: 7px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.btn:hover:not(:disabled) {
+  background: var(--bg);
+}
+.btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.btn-primary {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+.btn-primary:hover:not(:disabled) {
+  background: #1a43be;
+}
+.btn-danger {
+  color: var(--danger);
+  border-color: #f1b4ba;
+}
+.btn-danger:hover:not(:disabled) {
+  background: #fff0f1;
+}
+.btn-ghost {
+  border-color: transparent;
+  background: transparent;
+}
+.btn-sm {
+  padding: 4px 10px;
+  font-size: 13px;
+}
+input,
+select,
+textarea {
+  font: inherit;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--text);
+  width: 100%;
+}
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid #bcd0ff;
+  border-color: var(--primary);
+}
+.muted {
+  color: var(--muted);
+}
+.small {
+  font-size: 12px;
+}
+.form-error {
+  color: var(--danger);
+  font-size: 14px;
+  margin: 8px 0;
+}
+.grow {
+  flex: 1;
+}
+
+/* ---------- login ---------- */
+.login-wrap {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: var(--bg);
+}
+.login-card {
+  width: 320px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+.login-card h1 {
+  margin: 0 0 6px;
+  font-size: 20px;
+}
+.login-card label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* ---------- admin shell ---------- */
+.admin {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  min-height: 100vh;
+}
+.admin-nav {
+  background: #0d1117;
+  color: #c9d1d9;
+  padding: 18px 14px;
+  display: flex;
+  flex-direction: column;
+}
+.admin-brand {
+  font-weight: 700;
+  font-size: 15px;
+  color: #fff;
+  padding: 4px 10px 16px;
+}
+.admin-nav nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.admin-nav a {
+  color: #c9d1d9;
+  text-decoration: none;
+  padding: 9px 10px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+.admin-nav a:hover {
+  background: #161b22;
+}
+.admin-nav a.active {
+  background: #1f6feb33;
+  color: #fff;
+}
+.admin-nav-footer {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 16px;
+}
+.admin-viewsite {
+  color: #8b949e;
+  font-size: 13px;
+  text-decoration: none;
+  padding: 4px 10px;
+}
+.admin-nav-footer .btn-ghost {
+  color: #c9d1d9;
+  border: 1px solid #30363d;
+}
+.admin-main {
+  padding: 28px 32px;
+  overflow-x: auto;
+}
+
+/* ---------- panels ---------- */
+.panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  gap: 12px;
+}
+.panel-head h2 {
+  margin: 0;
+  font-size: 20px;
+}
+.seg {
+  display: inline-flex;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.seg button {
+  border: none;
+  background: #fff;
+  padding: 7px 16px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.seg button.active {
+  background: var(--primary);
+  color: #fff;
+}
+
+.tbl {
+  width: 100%;
+  border-collapse: collapse;
+}
+.tbl th,
+.tbl td {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+.tbl th {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+.grow-cell {
+  width: 100%;
+}
+.row-actions {
+  display: flex;
+  gap: 8px;
+  white-space: nowrap;
+}
+/* Inside a table, keep it a real cell so its bottom border lines up with the
+   rest of the row (display:flex on a <td> pulls it out of the table layout). */
+.tbl td.row-actions {
+  display: table-cell;
+  text-align: right;
+}
+.tbl td.row-actions .btn + .btn {
+  margin-left: 8px;
+}
+.badge {
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+.badge-green {
+  background: #dafbe1;
+  color: #1a7f37;
+}
+.badge-gray {
+  background: #eaeef2;
+  color: var(--muted);
+}
+
+/* ---------- forms ---------- */
+.inline-form {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.inline-form input {
+  width: auto;
+}
+.stack-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 520px;
+}
+.stack-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* ---------- custom URL list (profile) ---------- */
+.url-list {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.url-list-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--muted);
+}
+.url-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.url-row input {
+  width: auto;
+}
+
+/* ---------- gallery ---------- */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+.gcard {
+  margin: 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.gcard img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+}
+.gcard figcaption {
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+.gcard .btn {
+  margin: 0 10px 10px;
+}
+
+/* ---------- post editor ---------- */
+.editor-page {
+  max-width: 820px;
+}
+.editor-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+.editor-head h2 {
+  margin: 0;
+  font-size: 20px;
+  flex: 1;
+}
+.editor-head-actions {
+  display: flex;
+  gap: 8px;
+}
+.editor-meta {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+.editor-meta label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--muted);
+}
+.editor-meta label.grow {
+  flex: 1;
+}
+.editor-content-label {
+  display: block;
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+/* ---------- public site ---------- */
+.site {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 48px 24px;
+}
+.site-header h1 {
+  margin: 0;
+}
+.tagline {
+  color: var(--muted);
+}
+.admin-entry {
+  font-size: 14px;
+  color: var(--primary);
+}
+.profile-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+.profile-links a {
+  color: var(--primary);
+  text-decoration: none;
+}
+.profile-links a:hover {
+  text-decoration: underline;
+}
+.site-section {
+  margin-top: 36px;
+}
+.post-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.post-preview {
+  color: var(--muted);
+  font-size: 15px;
+}
