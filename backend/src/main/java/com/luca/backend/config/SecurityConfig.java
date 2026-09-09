@@ -12,6 +12,9 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.List;
 
@@ -21,44 +24,54 @@ public class SecurityConfig {
     @Bean
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-            .csrf(csrf -> csrf.disable())
-            .cors(Customizer.withDefaults())
-            .authorizeHttpRequests(auth -> auth
-                // owner-only: check current login
-                .requestMatchers("/api/auth/me").authenticated()
-                // public write: anyone can comment on a blog post
-                .requestMatchers(HttpMethod.POST, "/api/posts/*/comments").permitAll()
-                // public reads (blog, portfolio, images, comments, profile, links)
-                .requestMatchers(HttpMethod.GET, "/api/**").permitAll()
-                .requestMatchers("/h2-console/**").permitAll()
-                // everything else (create/update/delete posts, images, profile, links) = owner only
-                .anyRequest().authenticated()
-            )
-            .httpBasic(Customizer.withDefaults())
-            // allow the H2 dev console to render in a frame
-            .headers(headers -> headers.frameOptions(frame -> frame.disable()));
+                .csrf(csrf -> csrf.disable())
+                .cors(Customizer.withDefaults())
+                .authorizeHttpRequests(auth -> auth
+                        // owner-only: check current login
+                        .requestMatchers("/api/auth/me").authenticated()
+                        // public write: anyone can comment on a blog post
+                        .requestMatchers(HttpMethod.POST, "/api/posts/*/comments").permitAll()
+                        // public reads (blog, portfolio, images, comments, profile, links)
+                        .requestMatchers(HttpMethod.GET, "/api/**").permitAll()
+                        .requestMatchers("/h2-console/**").permitAll()
+                        // everything else (create/update/delete posts, images, profile, links) = owner
+                        // only
+                        .anyRequest().authenticated())
+                .httpBasic(Customizer.withDefaults())
+                // allow the H2 dev console to render in a frame
+                .headers(headers -> headers.frameOptions(frame -> frame.disable()));
         return http.build();
-    }
-
-    /** Single owner account. TODO: change the password and move it to config / env. */
-    @Bean
-    UserDetailsService userDetailsService() {
-        var owner = User.withUsername("owner")
-                .password("{noop}changeme")
-                .roles("OWNER")
-                .build();
-        return new InMemoryUserDetailsManager(owner);
     }
 
     @Bean
     CorsConfigurationSource corsConfigurationSource() {
         var config = new CorsConfiguration();
-        config.setAllowedOrigins(List.of("http://localhost:5173"));
+        // allow any localhost port in dev (5173/5174/… shift when a port is taken).
+        // AllowedOriginPatterns is required here because credentials are enabled.
+        config.setAllowedOriginPatterns(List.of("http://localhost:*", "http://127.0.0.1:*"));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
         config.setAllowCredentials(true);
         var source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config);
         return source;
+    }
+
+    @Bean
+    PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
+    @Bean
+    UserDetailsService userDetailsService(
+            @Value("${app.admin.username}") String username,
+            @Value("${app.admin.password}") String password,
+            PasswordEncoder passwordEncoder) {
+        var owner = User.withUsername(username)
+                .password(passwordEncoder.encode(password))
+                .roles("OWNER")
+                .build();
+
+        return new InMemoryUserDetailsManager(owner);
     }
 }

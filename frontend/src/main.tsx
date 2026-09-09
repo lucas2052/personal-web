@@ -4,6 +4,12 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import './index.css'
 import './admin/admin.css'
 import App from './App.tsx'
+import ProjectDetail from './ProjectDetail.tsx'
+import Projects from './Projects.tsx'
+import Profile from './Profile.tsx'
+import Contact from './Contact.tsx'
+import BlogList from './BlogList.tsx'
+import BlogPost from './BlogPost.tsx'
 import Login from './admin/Login.tsx'
 import AdminLayout from './admin/AdminLayout.tsx'
 import PostsPanel from './admin/PostsPanel.tsx'
@@ -16,6 +22,12 @@ createRoot(document.getElementById('root')!).render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
+        <Route path="/blog" element={<BlogList />} />
+        <Route path="/blog/:slug" element={<BlogPost />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/project/:slug" element={<ProjectDetail />} />
         <Route path="/login" element={<Login />} />
         <Route path="/admin" element={<AdminLayout />}>
           <Route index element={<Navigate to="posts" replace />} />

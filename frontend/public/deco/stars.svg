@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 610" fill="none">
+<defs>
+<linearGradient id="silver" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#f6f6f6"/><stop offset="0.5" stop-color="#cbcbcb"/><stop offset="1" stop-color="#8f8f8f"/>
+</linearGradient>
+<linearGradient id="silverDark" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#c9c9c9"/><stop offset="0.5" stop-color="#8a8a8a"/><stop offset="1" stop-color="#4d4d4d"/>
+</linearGradient>
+</defs>
+<path d="M54.3,564.9 L41.0,571.6 L42.0,586.4 L31.5,575.8 L17.7,581.3 L24.5,568.1 L15.0,556.7 L29.7,559.1 L37.7,546.5 L39.9,561.2 Z" fill="url(#silver)" stroke="#9a9a9a" stroke-width="0.5" stroke-opacity="0.5"/>
+<path d="M96.5,498.0 L85.1,497.4 L80.1,507.6 L77.2,496.7 L65.9,495.1 L75.4,488.9 L73.4,477.7 L82.3,484.8 L92.3,479.5 L88.3,490.1 Z" fill="url(#silver)" stroke="#9a9a9a" stroke-width="0.5" stroke-opacity="0.5"/>
+<path d="M48.2,484.4 L41.9,479.9 L35.2,484.0 L37.5,476.5 L31.6,471.5 L39.4,471.4 L42.3,464.1 L44.9,471.5 L52.6,472.1 L46.4,476.8 Z" fill="url(#silver)" stroke="#9a9a9a" stroke-width="0.5" stroke-opacity="0.5"/>
+<path d="M83.2,536.1 L68.1,534.2 L60.5,547.4 L57.6,532.4 L42.7,529.2 L56.1,521.9 L54.5,506.8 L65.6,517.2 L79.5,511.0 L73.1,524.8 Z" fill="url(#silver)" stroke="#9a9a9a" stroke-width="0.5" stroke-opacity="0.5"/>
+<path d="M112.7,363.4 L114.7,374.7 L125.9,377.4 L115.7,382.7 L116.7,394.2 L108.4,386.2 L97.8,390.6 L102.9,380.3 L95.4,371.6 L106.8,373.2 Z" fill="url(#silverDark)" stroke="#9a9a9a" stroke-width="0.5" stroke-opacity="0.5"/>
+<path d="M166.2,347.8 L156.8,353.5 L158.4,364.3 L150.1,357.2 L140.3,362.0 L144.5,351.9 L136.9,344.0 L147.8,344.9 L152.9,335.2 L155.4,345.9 Z" fill="url(#silver)" stroke="#9a9a9a" stroke-width="0.5" stroke-opacity="0.5"/>
+<path d="M233.1,401.1 L222.0,399.4 L216.0,409.0 L214.2,397.9 L203.3,395.2 L213.3,390.0 L212.4,378.8 L220.5,386.7 L230.9,382.4 L225.8,392.5 Z" fill="url(#silver)" stroke="#9a9a9a" stroke-width="0.5" stroke-opacity="0.5"/>
+<path d="M225.4,424.8 L213.7,414.7 L199.8,421.6 L205.8,407.3 L195.0,396.2 L210.4,397.5 L217.6,383.8 L221.1,398.9 L236.4,401.5 L223.2,409.5 Z" fill="url(#silver)" stroke="#9a9a9a" stroke-width="0.5" stroke-opacity="0.5"/>
+<path d="M252.4,269.7 L253.7,279.1 L262.8,281.6 L254.3,285.7 L254.8,295.2 L248.2,288.4 L239.3,291.8 L243.8,283.4 L237.8,276.0 L247.2,277.7 Z" fill="url(#silver)" stroke="#9a9a9a" stroke-width="0.5" stroke-opacity="0.5"/>
+<path d="M292.7,340.8 L287.8,331.7 L277.6,332.6 L284.7,325.2 L280.7,315.7 L290.0,320.2 L297.7,313.4 L296.3,323.6 L305.2,329.0 L295.0,330.8 Z" fill="url(#silver)" stroke="#9a9a9a" stroke-width="0.5" stroke-opacity="0.5"/>
+<path d="M285.0,217.3 L271.8,223.8 L272.5,238.5 L262.3,227.9 L248.5,233.1 L255.4,220.1 L246.2,208.6 L260.7,211.2 L268.8,198.9 L270.8,213.5 Z" fill="url(#silver)" stroke="#9a9a9a" stroke-width="0.5" stroke-opacity="0.5"/>
+<path d="M360.4,185.8 L349.7,179.6 L339.8,187.2 L342.3,175.0 L332.1,168.0 L344.4,166.6 L348.0,154.8 L353.1,166.1 L365.5,165.8 L356.3,174.1 Z" fill="url(#silverDark)" stroke="#9a9a9a" stroke-width="0.5" stroke-opacity="0.5"/>
+<path d="M350.0,188.5 L336.3,181.8 L324.9,191.8 L327.0,176.8 L313.9,168.9 L328.9,166.3 L332.3,151.5 L339.5,164.9 L354.6,163.5 L344.1,174.5 Z" fill="url(#silverDark)" stroke="#9a9a9a" stroke-width="0.5" stroke-opacity="0.5"/>
+<path d="M393.2,123.1 L386.9,119.0 L380.6,123.2 L382.6,115.9 L376.6,111.3 L384.2,110.9 L386.7,103.8 L389.5,110.8 L397.0,111.1 L391.1,115.8 Z" fill="url(#silverDark)" stroke="#9a9a9a" stroke-width="0.5" stroke-opacity="0.5"/>
+<path d="M469.2,133.6 L461.2,130.5 L455.1,136.7 L455.6,128.1 L447.8,124.2 L456.2,122.0 L457.5,113.4 L462.1,120.7 L470.7,119.3 L465.2,126.0 Z" fill="url(#silverDark)" stroke="#9a9a9a" stroke-width="0.5" stroke-opacity="0.5"/>
+<path d="M510.6,43.3 L507.4,53.4 L515.4,60.4 L504.8,60.4 L500.7,70.2 L497.4,60.1 L486.8,59.2 L495.4,53.0 L493.0,42.6 L501.6,48.8 Z" fill="url(#silverDark)" stroke="#9a9a9a" stroke-width="0.5" stroke-opacity="0.5"/>
+<path d="M581.3,119.8 L575.0,112.5 L565.9,115.5 L570.8,107.3 L565.1,99.5 L574.5,101.6 L580.1,93.8 L581.0,103.4 L590.2,106.3 L581.3,110.1 Z" fill="url(#silverDark)" stroke="#9a9a9a" stroke-width="0.5" stroke-opacity="0.5"/>
+<path d="M530.7,65.7 L531.2,78.2 L542.9,82.5 L531.2,86.9 L530.7,99.4 L522.9,89.6 L510.9,92.9 L517.8,82.5 L510.9,72.1 L522.9,75.5 Z" fill="url(#silver)" stroke="#9a9a9a" stroke-width="0.5" stroke-opacity="0.5"/>
+</svg>
