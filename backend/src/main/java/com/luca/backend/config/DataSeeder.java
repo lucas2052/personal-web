@@ -14,11 +14,12 @@ import org.springframework.context.annotation.Configuration;
 
 /** Seeds a little sample content on startup so the site isn't empty in dev. */
 @Configuration
+@org.springframework.context.annotation.Profile("dev")
 public class DataSeeder {
 
     @Bean
     CommandLineRunner seed(PostRepository posts, ImageRepository images,
-                           ProfileRepository profiles, LinkRepository links) {
+            ProfileRepository profiles, LinkRepository links) {
         return args -> {
             if (posts.count() == 0) {
                 Post blog = new Post();
