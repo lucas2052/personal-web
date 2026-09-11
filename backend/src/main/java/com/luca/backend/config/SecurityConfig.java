@@ -17,6 +17,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.List;
+import java.util.Arrays;
 
 @Configuration
 public class SecurityConfig {
@@ -44,14 +45,23 @@ public class SecurityConfig {
     }
 
     @Bean
-    CorsConfigurationSource corsConfigurationSource() {
+    CorsConfigurationSource corsConfigurationSource(
+            @Value("${app.cors.allowed-origins:http://localhost:*,http://127.0.0.1:*}") String allowedOrigins) {
+
         var config = new CorsConfiguration();
-        // allow any localhost port in dev (5173/5174/… shift when a port is taken).
-        // AllowedOriginPatterns is required here because credentials are enabled.
-        config.setAllowedOriginPatterns(List.of("http://localhost:*", "http://127.0.0.1:*"));
-        config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+
+        config.setAllowedOriginPatterns(
+                Arrays.stream(allowedOrigins.split(","))
+                        .map(String::trim)
+                        .filter(origin -> !origin.isEmpty())
+                        .toList());
+
+        config.setAllowedMethods(
+                List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+
         config.setAllowedHeaders(List.of("*"));
         config.setAllowCredentials(true);
+
         var source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config);
         return source;
