@@ -1,7 +1,6 @@
 import axios from 'axios'
 
-// The Spring Boot backend. CORS on the server already allows this origin
-// with credentials, so we send the HTTP Basic header on every write.
+// The Spring Boot backend uses an HttpOnly session cookie for admin requests.
 export const api = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL,
   withCredentials: true,

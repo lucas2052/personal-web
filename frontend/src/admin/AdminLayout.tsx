@@ -1,13 +1,20 @@
+import { useEffect, useState } from 'react'
 import { NavLink, Outlet, useNavigate, Navigate } from 'react-router-dom'
-import { isLoggedIn, logout } from '../auth'
+import { checkSession, logout } from '../auth'
 
 export default function AdminLayout() {
   const navigate = useNavigate()
+  const [sessionState, setSessionState] = useState<'checking' | 'authenticated' | 'anonymous'>('checking')
 
-  if (!isLoggedIn()) return <Navigate to="/login" replace />
+  useEffect(() => {
+    void checkSession().then((ok) => setSessionState(ok ? 'authenticated' : 'anonymous'))
+  }, [])
 
-  const signOut = () => {
-    logout()
+  if (sessionState === 'checking') return <div className="login-wrap">Checking session…</div>
+  if (sessionState === 'anonymous') return <Navigate to="/login" replace />
+
+  const signOut = async () => {
+    await logout()
     navigate('/login')
   }
 
@@ -31,7 +38,7 @@ export default function AdminLayout() {
         </nav>
         <div className="admin-nav-footer">
           <a href="/" className="admin-viewsite">↗ View site</a>
-          <button type="button" className="btn btn-ghost" onClick={signOut}>
+          <button type="button" className="btn btn-ghost" onClick={() => void signOut()}>
             Sign out
           </button>
         </div>
