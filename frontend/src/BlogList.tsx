@@ -13,6 +13,7 @@ export default function BlogList() {
     api
       .get<Post[]>('/api/posts', { params: { type: 'BLOG' } })
       .then((r) => {
+        if (!Array.isArray(r.data)) throw new Error('Unexpected posts response')
         setPosts(r.data)
         setStatus('ok')
       })

@@ -420,3 +420,81 @@ textarea:focus {
   color: var(--muted);
   font-size: 15px;
 }
+
+/* ---------- mobile admin ---------- */
+@media (max-width: 760px) {
+  .login-wrap { padding: 20px; }
+  .login-card { width: min(100%, 380px); }
+
+  .admin {
+    display: block;
+    min-height: 100svh;
+  }
+  .admin-nav {
+    position: sticky;
+    z-index: 10;
+    top: 0;
+    padding: 12px 14px;
+    gap: 10px;
+  }
+  .admin-brand { padding: 0 4px; }
+  .admin-nav nav {
+    flex-direction: row;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .admin-nav nav::-webkit-scrollbar { display: none; }
+  .admin-nav a { flex: 0 0 auto; min-height: 42px; display: flex; align-items: center; }
+  .admin-nav-footer {
+    margin-top: 0;
+    padding-top: 0;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .admin-nav-footer .btn { min-height: 40px; }
+  .admin-main {
+    padding: 22px 16px 64px;
+    overflow-x: hidden;
+  }
+
+  .panel-head,
+  .editor-head {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .panel-head .btn,
+  .editor-head-actions .btn { min-height: 42px; }
+  .seg { width: 100%; }
+  .seg button { flex: 1; min-height: 42px; }
+
+  .tbl,
+  .tbl tbody,
+  .tbl tr,
+  .tbl td { display: block; width: 100%; }
+  .tbl thead { display: none; }
+  .tbl tr {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .tbl td { padding: 4px 0; border: 0; }
+  .tbl td.row-actions {
+    display: flex;
+    text-align: left;
+    padding-top: 10px;
+  }
+  .tbl td.row-actions .btn + .btn { margin-left: 8px; }
+
+  .inline-form,
+  .editor-meta,
+  .url-row { flex-direction: column; }
+  .inline-form input,
+  .url-row input { width: 100%; }
+  .inline-form .btn,
+  .stack-form .btn { min-height: 44px; }
+  .stack-form,
+  .editor-page { max-width: none; }
+  .editor-head-actions { width: 100%; }
+  .editor-head-actions .btn { flex: 1; }
+  .gallery { grid-template-columns: 1fr; }
+}
