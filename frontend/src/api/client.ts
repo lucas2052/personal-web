@@ -2,7 +2,9 @@ import axios from 'axios'
 
 // The Spring Boot backend uses an HttpOnly session cookie for admin requests.
 export const api = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL,
+  // Development talks directly to Spring Boot. Production uses Vercel's
+  // same-origin /api proxy so the admin session cookie is first-party.
+  baseURL: import.meta.env.DEV ? import.meta.env.VITE_API_BASE_URL : '',
   withCredentials: true,
 })
 
